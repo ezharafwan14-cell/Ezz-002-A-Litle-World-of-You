@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8c4d3">
+  <meta name="description" content="A small digital birthday world made just for you.">
+  <title>A Little Birthday World</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-bg"></div>
+
+  <!-- Opening screen -->
+  <div id="opening" class="opening-screen">
+    <div class="opening-glow"></div>
+    <div id="openingParticles" class="opening-particles"></div>
+    <div class="opening-content">
+      <span class="opening-kicker">a little birthday world</span>
+      <p id="openingText" class="opening-text"></p>
+      <div class="opening-line"></div>
+    </div>
+  </div>
+
+  <main id="app" class="app-shell is-hidden">
+    <header class="topbar">
+      <button class="brand" data-route="home">
+        <span class="brand-mark">♡</span>
+        <span>little birthday world</span>
+      </button>
+      <button id="menuButton" class="menu-button" aria-label="Buka menu">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <!-- Navigation menu -->
+    <div id="menuOverlay" class="menu-overlay">
+      <div class="menu-panel">
+        <button class="menu-close" id="menuClose">×</button>
+        <span class="eyebrow">A LITTLE COLLECTION</span>
+        <h2>For <span data-name></span>.</h2>
+        <nav id="menuNav" class="menu-nav"></nav>
+      </div>
+    </div>
+
+    <!-- Home / Birthday chapter -->
+    <section id="home" class="page-section active">
+      <div class="hero container">
+        <span class="eyebrow">A LITTLE BIRTHDAY CHAPTER</span>
+        <h1>For Someone<br><em>I'm Grateful For</em></h1>
+        <p class="hero-subtitle">Untuk seseorang yang aku syukuri kehadirannya.</p>
+
+        <div class="birth-meta">
+          <span id="birthDateText"></span>
+          <span class="dot"></span>
+          <span>Today is about celebrating you.</span>
+        </div>
+
+        <div class="hero-card glass-card">
+          <div class="hero-card-copy">
+            <span class="mini-label">EVERY SECOND COUNTS</span>
+            <p>Every second has been part of your story.</p>
+          </div>
+
+          <div id="ageTimer" class="age-timer">
+            <div class="time-unit"><strong data-unit="years">00</strong><span>Tahun</span></div>
+            <div class="time-unit"><strong data-unit="months">00</strong><span>Bulan</span></div>
+            <div class="time-unit"><strong data-unit="days">00</strong><span>Hari</span></div>
+            <div class="time-unit"><strong data-unit="hours">00</strong><span>Jam</span></div>
+            <div class="time-unit"><strong data-unit="minutes">00</strong><span>Menit</span></div>
+            <div class="time-unit"><strong data-unit="seconds">00</strong><span>Detik</span></div>
+          </div>
+          <p id="timerSince" class="timer-since"></p>
+        </div>
+
+        <div class="scroll-hint"><span></span> scroll slowly</div>
+      </div>
+
+      <div class="collection container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">A LITTLE COLLECTION</span>
+            <h2>A Few Things I Made For You</h2>
+          </div>
+          <p>Take your time.</p>
+        </div>
+        <div id="collectionGrid" class="collection-grid"></div>
+      </div>
+    </section>
+
+    <!-- Birthday letter -->
+    <section id="letter" class="page-section">
+      <div class="container narrow">
+        <button class="back-button" data-route="home">← Kembali</button>
+        <span class="eyebrow">A LITTLE LETTER</span>
+        <h1>Ucapan Untukmu</h1>
+        <p class="page-subtitle">Words I wanted you to hear.</p>
+
+        <article class="letter-card paper-card">
+          <div class="letter-top">for <span data-name></span> <span>♡</span></div>
+          <p>Selamat ulang tahun, <span data-name></span>. 🤍</p>
+          <p>Hari ini mungkin terlihat seperti hari biasa bagi sebagian orang, tapi sebenarnya hari ini adalah hari yang cukup istimewa. Karena pada hari ini, seseorang yang berarti telah hadir ke dunia dan memulai perjalanan panjangnya hingga sampai di titik sekarang.</p>
+          <p>Banyak hal yang sudah terjadi selama perjalanan itu. Ada tawa, cerita, kejutan, kesalahan, keberhasilan, hari-hari yang menyenangkan, dan mungkin juga beberapa hari yang tidak mudah. Tapi semua itu menjadi bagian dari cerita yang membuatmu menjadi dirimu yang sekarang.</p>
+          <p>Di hari ulang tahunmu ini, aku cuma ingin berharap semoga langkahmu ke depan selalu dipenuhi hal-hal baik. Semoga apa pun yang sedang kamu perjuangkan bisa perlahan menemukan jalannya, semoga kamu selalu dikelilingi orang-orang yang tulus, dan semoga kamu punya lebih banyak alasan untuk tersenyum di tahun yang baru ini.</p>
+          <p>Jangan lupa untuk menikmati perjalananmu. Tidak harus selalu sempurna, tidak harus selalu cepat. Yang penting, terus berjalan dan jangan kehilangan dirimu sendiri.</p>
+          <p>Selamat ulang tahun, <span data-name></span>.</p>
+          <p>Semoga tahun ini menjadi salah satu bab terbaik dalam ceritamu. ✨</p>
+          <div class="signature">with warmth,<br><span>someone who made this little place</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Memories carousel -->
+    <section id="memories" class="page-section">
+      <div class="container wide">
+        <button class="back-button" data-route="home">← Kembali</button>
+
+        <div class="section-heading memories-heading">
+          <div>
+            <span class="eyebrow">OUR MEMORIES</span>
+            <h1>Kenangan yang Perlu Dikenang</h1>
+            <p class="page-subtitle">Some memories deserve to stay a little longer.</p>
+          </div>
+          <div class="memory-counter">
+            <strong id="memoryCurrent">01</strong> /
+            <span id="memoryTotal">10</span>
+          </div>
+        </div>
+
+        <p class="memory-intro">
+          Beberapa kenangan memang pantas untuk disimpan lebih lama.<br>
+          Karena beberapa foto bukan hanya sekadar foto. Ada cerita, tawa,
+          percakapan, dan momen kecil yang mungkin suatu hari nanti akan kita rindukan.
+        </p>
+
+        <div class="memory-stage" id="memoryStage">
+          <button class="slider-button prev" id="memoryPrev" aria-label="Foto sebelumnya">←</button>
+          <div id="memoryTrack" class="memory-track"></div>
+          <button class="slider-button next" id="memoryNext" aria-label="Foto berikutnya">→</button>
+        </div>
+
+        <div class="slider-controls">
+          <div id="memoryDots" class="memory-dots"></div>
+          <div class="slider-progress"><span id="memoryProgress"></span></div>
+          <p id="memoryCaption" class="memory-caption">one little memory 🤍</p>
+        </div>
+        <p id="memoryStatus" class="data-status"></p>
+      </div>
+    </section>
+
+    <!-- Ten little things -->
+    <section id="little-things" class="page-section">
+      <div class="container narrow center-page">
+        <button class="back-button align-left" data-route="home">← Kembali</button>
+        <span class="eyebrow">A LITTLE LIST</span>
+        <h1>10 Hal Kecil</h1>
+        <p class="page-subtitle">Sepuluh hal yang ingin kusampaikan.</p>
+
+        <div class="little-card glass-card">
+          <div class="little-counter"><span id="littleCurrent">01</span> / 10</div>
+          <div class="little-sparkle">✦</div>
+          <p id="littleText"></p>
+          <button id="littleNext" class="primary-button">Berikutnya →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Songs -->
+    <section id="songs" class="page-section">
+      <div class="container medium">
+        <button class="back-button" data-route="home">← Kembali</button>
+        <span class="eyebrow">OUR SONGS</span>
+        <h1>Our Songs 🎧</h1>
+        <p class="page-subtitle">Songs that remind me of you.</p>
+
+        <div class="songs-intro">
+          <p>Beberapa lagu mungkin terdengar biasa bagi orang lain, tapi punya cerita yang berbeda bagi kita.</p>
+          <p>Mungkin lagu-lagu ini akan mengingatkanmu pada momen, percakapan, atau sekadar hari-hari yang pernah kita lalui.</p>
+          <p>So, press play and enjoy the memories. 🤍</p>
+        </div>
+
+        <div class="now-playing"><span class="pulse-dot"></span> Now Playing...</div>
+        <div id="songList" class="song-list"></div>
+        <p id="songStatus" class="data-status"></p>
+      </div>
+    </section>
+
+    <!-- Mini quiz -->
+    <section id="quiz" class="page-section">
+      <div class="container narrow center-page">
+        <button class="back-button align-left" data-route="home">← Kembali</button>
+        <span class="eyebrow">A LITTLE GAME</span>
+        <h1>Tentang Kita</h1>
+        <p class="page-subtitle">Seberapa ingat kamu dengan cerita kecil kita? Yuk, kita lihat. 👀</p>
+
+        <div class="quiz-card glass-card">
+          <div class="quiz-top">
+            <span id="quizCount">01 / 07</span>
+            <span id="quizScore">0 benar</span>
+          </div>
+          <div class="quiz-progress"><span id="quizProgress"></span></div>
+          <h2 id="quizQuestion"></h2>
+          <div id="quizOptions" class="quiz-options"></div>
+          <div id="quizFeedback" class="quiz-feedback"></div>
+          <button id="quizNext" class="primary-button hidden">Pertanyaan berikutnya →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Last surprise -->
+    <section id="surprise" class="page-section">
+      <div class="container narrow center-page">
+        <button class="back-button align-left" data-route="home">← Kembali</button>
+        <span class="eyebrow">A LITTLE SECRET</span>
+        <h1>One Last Surprise ✨</h1>
+        <p class="page-subtitle">Something is waiting for you.</p>
+
+        <div class="surprise-card paper-card">
+          <div class="surprise-icon">✦</div>
+          <h2>Surprise! 🎉</h2>
+          <p>Kalau kamu sudah sampai di sini, berarti kamu sudah melihat sedikit cerita, kenangan, dan pesan yang ingin aku berikan untukmu.</p>
+          <p>Tapi sebenarnya, hadiah terbesarnya bukan sesuatu yang bisa dibungkus.</p>
+          <p>Aku cuma berharap, di usia barumu ini kamu bisa menemukan lebih banyak kebahagiaan, lebih banyak alasan untuk tersenyum, dan lebih banyak momen yang layak untuk dikenang.</p>
+          <p><strong>Happy Birthday, <span data-name></span>. 🤍</strong></p>
+          <p>Semoga semua hal baik menemukan jalannya kepadamu.</p>
+          <p>Dan kalau suatu hari kamu membuka website ini lagi, semoga kamu masih bisa tersenyum saat mengingat hari ini.</p>
+          <p>This little surprise was made just for you. 🎁</p>
+          <button id="openSurprise" class="primary-button">Open Your Surprise</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ending -->
+    <section id="ending" class="page-section ending-page">
+      <div class="container narrow center-page">
+        <button class="back-button align-left" data-route="home">← Kembali</button>
+        <div class="ending-orbit">✦</div>
+        <span class="eyebrow">THE END</span>
+        <h1>Before you go...</h1>
+        <p class="ending-quote">“If you ever come back to this little place,<br>I hope you remember how special today was.”</p>
+        <div class="ending-name" data-name></div>
+        <p>Made especially for you. 🤍</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Final birthday reveal -->
+  <div id="surpriseOverlay" class="surprise-overlay">
+    <div id="surpriseCountdown" class="surprise-countdown"></div>
+    <div id="confettiLayer" class="confetti-layer"></div>
+    <div class="surprise-result">
+      <div class="surprise-photo-wrap">
+        <img id="surprisePhoto" alt="A little birthday memory">
+      </div>
+      <span class="eyebrow">HERE'S TO ANOTHER CHAPTER</span>
+      <h2>HAPPY BIRTHDAY,<br><span data-name></span>!! 🎂✨</h2>
+      <p>Here's to another beautiful chapter. 🤍</p>
+      <button id="closeSurprise" class="ghost-button">Back to this little world</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+        </html>
